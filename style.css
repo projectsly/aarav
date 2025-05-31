@@ -176,3 +176,8 @@ body {
     text-align: left;
     padding: 5px;
 }
+
+#spiral-galaxy {
+    transition: all 0.5s ease;
+    border-radius: 50%;
+}
