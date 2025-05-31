@@ -2,6 +2,20 @@ function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+let startupCancelled = false;
+
+function skipStartup() {
+    startupCancelled = true;
+
+    const startup = document.querySelector(".startup");
+    const started = document.querySelector(".started");
+
+    startup.style.opacity = "0";
+    startup.style.display = "none";
+    started.style.display = "block";
+    started.style.opacity = "1";
+}
+
 function newTextContainer(text, parent, color) {
     const container = document.createElement("div");
     container.className = "text-container";
@@ -19,46 +33,72 @@ async function startup() {
     const startuptext = document.getElementById("startuptext");
     started.style.display = "none";
 
+    if (startupCancelled) return;
+
     newTextContainer(
         `      OK      | Started service projectsly.online`,
         startuptext,
         "green"
     );
     await sleep(1000);
+
+    if (startupCancelled) return;
     newTextContainer(
         `      OK      | Started Set console font and keymap`,
         startuptext,
         "green"
     );
     await sleep(1000);
+
+    if (startupCancelled) return;
     newTextContainer(
         `    FAILED    | Error: Could not find /projectsly.online/aarav - No such service present`,
         startuptext,
         "red"
     );
     await sleep(1000);
+
+    if (startupCancelled) return;
     newTextContainer(`      OK      | Retrying: 5s`, startuptext, "green");
     await sleep(1000);
+
+    if (startupCancelled) return;
     newTextContainer(`      OK      | Retrying: 4s`, startuptext, "green");
     await sleep(1000);
+
+    if (startupCancelled) return;
     newTextContainer(`      OK      | Retrying: 3s`, startuptext, "green");
     await sleep(1000);
+
+    if (startupCancelled) return;
     newTextContainer(`      OK      | Retrying: 2s`, startuptext, "green");
     await sleep(1000);
+
+    if (startupCancelled) return;
     newTextContainer(`      OK      | Retrying: 1s`, startuptext, "green");
     await sleep(1000);
+
+    if (startupCancelled) return;
     newTextContainer(
         `      OK      | Started service /projectsly.online/aarav`,
         startuptext,
         "green"
     );
     await sleep(1000);
+
+    if (startupCancelled) return;
     newTextContainer(`      OK      | Starting GUI....`, startuptext, "green");
     await sleep(1000);
+
+    if (startupCancelled) return;
     startup.style.opacity = "0";
     await sleep(500);
+
+    if (startupCancelled) return;
     startup.style.display = "none";
     await sleep(500);
+
+    if (startupCancelled) return;
     started.style.display = "block";
     started.style.opacity = "1";
 }
