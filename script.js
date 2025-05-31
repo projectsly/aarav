@@ -24,7 +24,7 @@ async function startup() {
     await sleep(1000);
     newTextContainer(`      OK      | Started Set console font and keymap`, startuptext, "green");
     await sleep(1000);
-    newTextContainer(`    FAILED    | Error: Could not find aarav.projectsly.online - No such service present`, startuptext, "red");
+    newTextContainer(`    FAILED    | Error: Could not find /projectsly.online/aarav - No such service present`, startuptext, "red");
     await sleep(1000);
     newTextContainer(`      OK      | Retrying: 5s`, startuptext, "green");
     await sleep(1000);
@@ -36,7 +36,7 @@ async function startup() {
     await sleep(1000);
     newTextContainer(`      OK      | Retrying: 1s`, startuptext, "green");
     await sleep(1000);
-    newTextContainer(`      OK      | Started service projectsly.online`, startuptext, "green");
+    newTextContainer(`      OK      | Started service /projectsly.online/aarav`, startuptext, "green");
     await sleep(1000);
     newTextContainer(`      OK      | Starting GUI....`, startuptext, "green");
     await sleep(1000);
